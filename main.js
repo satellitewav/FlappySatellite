@@ -169,8 +169,8 @@ function reset() {
     gameOver = false;
     score = 0;
     credits.renderable = true;
-    scoreText.setText("DON'T\nTOUCH\nMY\nBIRDIE");
-    instText.setText("TOUCH TO FLAP\nBIRDIE WINGS");
+    scoreText.setText("VOLA\nCOME\nUN\nGHIRO");
+    instText.setText("TOCCA PER VOLARE\nCON L'UCCELLO");
     gameOverText.renderable = false;
     birdie.body.allowGravity = false;
     birdie.angle = 0;
