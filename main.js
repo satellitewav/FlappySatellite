@@ -294,6 +294,10 @@ function addScore(_, inv) {
 
 function setGameOver() {
     gameOver = true;
+  
+
+  
+  
     instText.setText("TOUCH BIRDIE\nTO TRY AGAIN");
     instText.renderable = true;
     var hiscore = window.localStorage.getItem('hiscore');
@@ -301,6 +305,18 @@ function setGameOver() {
     hiscore = score > parseInt(hiscore, 10) ? score : hiscore;
     window.localStorage.setItem('hiscore', hiscore);
     gameOverText.setText("GAME OVER");
+  
+    submitPlayers.addEventListener("click",function(){
+    if( document.getElementById("name").value != ''){
+    //e.preventDefault();
+    db.collection('players').add({
+        name: name.value,
+        score: parseInt(hiscore.value)
+        });
+      }
+    });  
+  
+  
     gameOverText.renderable = true;
     // Stop all fingers
     fingers.forEachAlive(function(finger) {
