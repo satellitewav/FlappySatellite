@@ -398,10 +398,10 @@ function render() {
     }
 }
 
-function onKeyDown(e) { }
+function onKeyUp(e) { }
 
 var pressTime = 0;
-function onKeyUp(e) {
+function onKeyDown(e) {
     if (Phaser.Keyboard.SPACEBAR == e.keyCode) {
         if (game.time.now - pressTime < 200) {
             cobraMode = 1000;
