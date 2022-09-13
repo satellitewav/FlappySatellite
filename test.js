@@ -417,7 +417,7 @@ function onKeyUp(e) {
 
 
 function StartGame(){
-
+            document.body.innerHTML = '';
             function start() {
                 init(document.querySelector('#screen'));
             }
