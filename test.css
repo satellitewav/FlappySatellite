@@ -1,0 +1,86 @@
+*{
+    margin: 5px;
+    padding: 2;
+    font-family:sans-serif;
+    text-align: center;
+}
+body {
+  background-color: #e7e7e7;
+}
+input[type=text] {
+  width: 20%;
+  box-sizing: border-box;
+  font-size: 18.5px;
+  border: none;
+  background-color: #e7e7e7;
+ border-bottom: 2px solid black;
+}
+
+#demo1{
+    font-size:30px;
+     display:inline-block;
+     color:blue;
+}
+input[type=number]{
+     background-color: #e7e7e7;
+}
+#scoretext{
+    position: relative;
+    left: 143px;
+}
+
+#demo2{
+    font-size:30px;
+    display:inline-block;
+    color:green;
+    border: 0
+}
+
+.blackbtn{
+    background-color:black;
+    font-weight: bold;
+    font-size: 32px;
+    color: gold
+}
+
+.goldbtn{
+    background-color:gold;
+    font-weight: bold;
+    font-size: 32px;
+    color: white;
+}
+
+.whitebtn{
+    background-color:gray;
+    font-weight: bold;
+    font-size: 32px;
+    color: black;
+}
+
+#submit_btn, .level{
+background-color: white;
+ border: 2px solid #e7e7e7;
+color: black;
+padding: 9px 28px;
+text-align: center;
+font-size: 15px;
+margin: 4px 2px;
+transition-duration: 0.4s;
+cursor: pointer;
+}
+.level:hover, #submit_btn:hover {
+    background-color: lightgray;
+}
+
+#table{
+    display:none;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    width:170px;
+}
+th , tr {
+    text-align:center;
+    padding: 5px;
+     border: 1px solid black;
+ }

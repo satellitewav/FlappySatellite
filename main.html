@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase.js"></script>
+        <link rel="stylesheet" href="test.css">
+        <script src="test.js"></script>
+    </head>
+
+    <body>
+    <br>
+    <h1>MINI GAME!</h1> <br>
+
+        <h3>Enter your name:</h3>
+        <input id=name name="name" type="text" size="30"> <br><br>
+
+    <h3>Choose difficulty level:</h3>
+        <button id="easy"   class="level"  value="easy"   onclick="StartGame('easy')"> EASY </button><br>
+        <button id="medium" class="level"  value="medium" onclick="StartGame('medium')"> MEDIUM </button><br>
+        <button id="hard"   class="level"  value="hard"   onclick="StartGame('hard')"> HARD </button><br><br>
+
+        <p style="font-size:30px; display:inline-block"> Current Color: </p>
+        <p id="demo1"> </p> <br>
+
+        <p style="font-size:30px;display:inline-block" id="scoretext"> Your Score: </p>
+        <input  id="demo2"  name="score" type="number"  > </input>  <br> <br>
+
+        <button class="blackbtn" onclick="game('Gold')" > BLACK </button>
+        <button class="goldbtn" onclick="game('White')" > GOLD </button>
+        <button class="whitebtn" onclick="game('Black')" > WHITE </button> <br> <br>
+
+        <button  id="submit_btn" onclick="display()"> Check your score on the leader board!!  </button> <br> <br>
+
+        <div id="results">
+            <table id="table">
+                <th>Leader Board!!</th>
+                <tr>
+                    <td id="leaderBoard"></td>
+                </tr>
+            </table>
+        </div>
+
+    <script src="./test2.js"></script>
+    </body>
+
+</html>
