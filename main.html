@@ -15,34 +15,9 @@
     <br>
     <h1>MINI GAME!</h1> <br>
 
-        <h3>Enter your name:</h3>
+        <h3>Username insta/telegram:</h3>
         <input id=name name="name" type="text" size="30"> <br><br>
-
-        <div id="screen"></div>
-        <script src="phaser.min.js"></script>
-        <script src="main.js"></script>
-        <script>
-
-            function start() {
-                init(document.querySelector('#screen'));
-            }
-
-            WebFontConfig = {
-                google: { families: [ 'Press+Start+2P::latin' ] },
-                active: start
-            };
-            (function() {
-                var wf = document.createElement('script');
-                wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-                '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-                wf.type = 'text/javascript';
-                wf.async = 'true';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(wf, s);
-            })();
-
-        </script>
-
+        <button  href="https://google.com"> Gioca </button> <br>
         <button  id="submit_btn" onclick="display()"> Check your score on the leader board!!  </button> <br> <br>
 
         <div id="results">
