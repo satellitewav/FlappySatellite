@@ -5,22 +5,6 @@ var FLAP = 420;
 var SPAWN_RATE = 1 / 1.2;
 var OPENING = 144;
 
-var firebaseConfig = {
-  apiKey: "AIzaSyBa9UrS6dOUZry33QMnZfSKUFsDUBV6Zj0",
-  authDomain: "flappybird-1efe3.firebaseapp.com",
-  databaseURL: "https://flappybird-1efe3-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "flappybird-1efe3",
-  storageBucket: "flappybird-1efe3.appspot.com",
-  messagingSenderId: "993302118393",
-  appId: "1:993302118393:web:f1de0e43d0ecd4d2f14728"
-};
-// Initialize Firebase
-var app = firebase.initializeApp(firebaseConfig);
-        db = firebase.firestore(app);
-        firebase.firestore().settings({
-            cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED
-        });
-
 function init(parent) {
 
 var state = {
@@ -305,16 +289,6 @@ function setGameOver() {
     hiscore = score > parseInt(hiscore, 10) ? score : hiscore;
     window.localStorage.setItem('hiscore', hiscore);
     gameOverText.setText("GAME OVER");
-  
-    submitPlayers.addEventListener("click",function(){
-    if( document.getElementById("name").value != ''){
-    //e.preventDefault();
-    db.collection('players').add({
-        name: name.value,
-        score: parseInt(hiscore.value)
-        });
-      }
-    });  
   
   
     gameOverText.renderable = true;
