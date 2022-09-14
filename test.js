@@ -279,7 +279,16 @@ function addScore(_, inv) {
 function setGameOver() {
     gameOver = true;
   
-
+    db.collection("users").add({
+        name: "Ada",
+        score: 6,
+    })
+    .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+    console.error("Error adding document: ", error);
+    });
   
   
     instText.setText("TOUCH BIRDIE\nTO TRY AGAIN");
