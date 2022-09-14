@@ -282,12 +282,21 @@ function setGameOver() {
 
   
   
-    instText.setText("TOUCH BIRDIE\nTO TRY AGAIN");
+    instText.setText("TOCCA L'UCCELLO\nPER RIPROVARE");
     instText.renderable = true;
-    var hiscore = window.localStorage.getItem('hiscore');
-    hiscore = hiscore ? hiscore : score;
-    hiscore = score > parseInt(hiscore, 10) ? score : hiscore;
-    window.localStorage.setItem('hiscore', hiscore);
+    var hiscore = 0;
+    if(score > hiscore){
+        score = hiscore
+        hiscore = document.getElementById("demo2").value
+    }
+    if( document.getElementById("name").value != ''){
+        //e.preventDefault();
+        db.collection('players').add({
+            name: name.value,
+            score: parseInt(hiscore.value)
+            });
+    }
+    
     gameOverText.setText("GAME OVER");
   
   
