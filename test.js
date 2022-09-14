@@ -278,27 +278,28 @@ function addScore(_, inv) {
 
 function setGameOver() {
     gameOver = true;
-  
-    db.collection("users").add({
-        name: "Ada",
-        score: 6,
-    })
-    .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
-    })
-    .catch((error) => {
-    console.error("Error adding document: ", error);
-    });
-  
-  
-    instText.setText("TOUCH BIRDIE\nTO TRY AGAIN");
+
+    instText.setText("TOCCA L'UCCELLO\nPER RIPROVARE");
     instText.renderable = true;
     var hiscore = window.localStorage.getItem('hiscore');
     hiscore = hiscore ? hiscore : score;
     hiscore = score > parseInt(hiscore, 10) ? score : hiscore;
     window.localStorage.setItem('hiscore', hiscore);
-    gameOverText.setText("GAME OVER");
-  
+    gameOverText.setText("GAMEOVER\n\nRECORD\n" + hiscore);
+    
+    var text=document.getElementById('name');
+    if( document.getElementById("name").value != ''){
+        db.collection("players").add({
+            name: text.value,
+            score: hiscore,
+        })
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+        console.error("Error adding document: ", error);
+        });
+    }
   
     gameOverText.renderable = true;
     // Stop all fingers
@@ -426,7 +427,21 @@ function onKeyDown(e) {
 
 
 function StartGame(){
-            document.body.innerHTML = '';
+
+            var top = document.getElementById("top");
+            var bottom = document.getElementById("bottom");
+            
+            if (top.style.display == "none")
+            {
+                top.style.display = "block";
+                 bottom.style.display = "none";
+            }
+            else
+            {
+                    top.style.display = "none";
+                    bottom.style.display = "block";
+            }
+
             function start() {
                 init(document.querySelector('#screen'));
             }

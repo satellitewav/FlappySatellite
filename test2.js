@@ -50,16 +50,8 @@ db.collection('players').orderBy('score', "desc").onSnapshot(snapshot => {
 })
 
 // saving data
-submitPlayers.addEventListener("click",function(){
-    if( document.getElementById("name").value != ''){
-    //e.preventDefault();
-    db.collection('players').add({
-        name: name.value,
-        score: parseInt(score.value)
-        });
-      }
-    });
 
 function display(){
           document.getElementById('table').style.display = "block";
 }
+
