@@ -115,7 +115,7 @@ function create() {
         {
             font: '16px "Press Start 2P"',
             fill: '#fff',
-            stroke: '#430',
+            stroke: '#8d0d26',
             strokeThickness: 4,
             align: 'center'
         }
@@ -129,7 +129,7 @@ function create() {
         {
             font: '8px "Press Start 2P"',
             fill: '#fff',
-            stroke: '#430',
+            stroke: '#8d0d26',
             strokeThickness: 4,
             align: 'center'
         }
@@ -143,7 +143,7 @@ function create() {
         {
             font: '16px "Press Start 2P"',
             fill: '#fff',
-            stroke: '#430',
+            stroke: '#8d0d26',
             strokeThickness: 4,
             align: 'center'
         }
