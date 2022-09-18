@@ -291,8 +291,10 @@ function setGameOver() {
     
     var x = parseInt(hiscore)
     var text=document.getElementById('name');
+    
+    assegnaPunteggio(x, hiscore);
 
-    if( document.getElementById("name").value != ''){
+/*    if( document.getElementById("name").value != ''){
         db.collection("players").add({
             name: text.value,
             score: x,
@@ -303,7 +305,7 @@ function setGameOver() {
         .catch((error) => {
         console.error("Error adding document: ", error);
         });
-    }
+    } */
   
     gameOverText.renderable = true;
     // Stop all fingers
@@ -428,34 +430,93 @@ function onKeyDown(e) {
 
 };
 
+async function controlloUtente() {
+    // Make the initial query
+    var text=document.getElementById('name');
+    var migliore = "0";
+    var hiscore = "0";
+    const query = await db.collection("players").where("name", "==", text.value).get();
+  
+    if (!query.empty) {
+        const snapshot = query.docs[0];
+        const data = snapshot.data();
+        let migliore  = `${data.score}`;
+        var hiscore = migliore;
+        window.localStorage.setItem('hiscore', hiscore);
+        console.log(hiscore)
+        console.log(data);
+    } else {
+        var hiscore = 0;
+        window.localStorage.setItem('hiscore', hiscore);
+        console.log("No such document! Hiscore set to ", hiscore);
+    }
+  
+}
 
+async function assegnaPunteggio(x, hiscore) {
+    // Make the initial query
+    var text=document.getElementById('name');
+
+    const query = await db.collection("players").where("name", "==", text.value).get();
+  
+    if (!query.empty) {
+        const snapshot = query.docs[0];
+        const data = snapshot.data();
+        let migliore  = `${data.score}`;
+        if (hiscore > migliore){
+            console.log("Miglior punteggio superato");
+        }else{
+            console.log("Miglior punteggio non superato");
+        }
+    } else {
+        if( document.getElementById("name").value != ''){
+            db.collection("players").add({
+                name: text.value,
+                score: x,
+            })
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch((error) => {
+            console.error("Error adding document: ", error);
+            });
+        } 
+        console.log("Nuovo utente, assegno nome", text.value, " e punteggio ", hiscore);
+    }
+}
 
 function StartGame(){
 
     var text=document.getElementById('name');
     var migliore = "0";
     var hiscore = "0";
-/*    var docRef = db.collection("players").where("name", "==", text.value);
+    
+    controlloUtente();
 
-    docRef.get().then((doc) => {
+/*    docRef.then((doc) => {
         if (doc.exists) {
             console.log("Document data:", doc.data());
+            let data = doc.data();
+            let migliore  = `${data.score}`;
+            var hiscore = migliore;
+            window.localStorage.setItem('hiscore', hiscore);
+            console.log(hiscore)
         } else {
             // doc.data() will be undefined in this case
-            console.log("No such document!");
+            var hiscore = 0;
+            window.localStorage.setItem('hiscore', hiscore);
+            console.log("No such document! Hiscore set to ", hiscore);
         }
     }).catch((error) => {
         console.log("Error getting document:", error);
     }); */
 
-    db.collection("players").where("name", "==", text.value)
+/*    db.collection("players").where("name", "==", text.value)
     .get()
     .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-            migliore = doc.data();
-            console.log(doc.id, " => ", migliore);
+            let data = doc.data();
+            let migliore  = `${data.score}`;
             var hiscore = migliore;
             window.localStorage.setItem('hiscore', hiscore);
             console.log(hiscore)
@@ -463,7 +524,7 @@ function StartGame(){
     })
     .catch((error) => {
         console.log("Error getting documents: ", error);
-    });
+    }); */
 
             var top = document.getElementById("top");
             var bottom = document.getElementById("bottom");
