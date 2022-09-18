@@ -18,12 +18,36 @@ var app = firebase.initializeApp(firebaseConfig);
         });
 
 
-   const submitPlayers = document.querySelector("#submit_btn");
+/* export const createNewUser = functions.https.onCall(async (data, context) => {
+  
+  const userNameDoc = await firebase.firestore().collection("players").where("name", "==", username).get()
+
+}) */
+
+db.collection("players").orderBy("score", "desc").limit(5)
+.get()
+.then(querySnapshot=>{
+        querySnapshot.forEach(doc=>{
+            let data = doc.data();
+            let row  = `<tr style="margin-left:auto; margin-right:auto; padding: 5px; border: 1px solid black;">
+                            <td style="padding: 5px; border: 1px solid black;">${data.name}</td>
+                            <td>${data.score}</td>
+                      </tr>`;
+            let table = document.getElementById('myTable')
+            table.innerHTML += row
+        })
+})
+.catch(err=>{
+    console.log(`Error: ${err}`)
+});
+
+
+/*   const submitPlayers = document.querySelector("#submit_btn");
    const name = document.querySelector("#name");
    const leaderBoard = document.querySelector("#leaderBoard");
    const score = document.querySelector("#demo2");
 
-function renderCafe(doc){
+ function renderCafe(doc){
     let tr = document.createElement('tr');
     let name = document.createElement('span');
     let score = document.createElement('td');
@@ -36,22 +60,23 @@ function renderCafe(doc){
     tr.appendChild(score);
 
     leaderBoard.appendChild(tr);
-}
+} */
 
 // real-time listener
 //snapshot an obj that represents your doc ..grab the data i t contains by calling data on it
-db.collection('players').orderBy('score', "desc").onSnapshot(snapshot => {
+
+
+/* db.collection('players').orderBy('score', 'desc').onSnapshot(snapshot => {
     let changes = snapshot.docChanges();
         changes.forEach(change => {
-        console.log(change.doc.data());
-        if(change.type == 'added'){
-            renderCafe(change.doc);}
-    })
-})
+            console.log(change.doc.data());
+            if(change.type == 'added'){
+                renderCafe(change.doc);}
+        })
+}) */
 
 // saving data
 
 function display(){
           document.getElementById('table').style.display = "block";
 }
-

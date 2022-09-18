@@ -19,12 +19,15 @@
             }
             </style>
         </style>
+
+    <!-- 7.14.2  -->
     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+     <!-- <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script> -->  
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
         <!-- Add Firebase products that you want to use -->
-        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase.js"></script>
+        
         <link rel="stylesheet" href="test.css">
 
     </head>
@@ -35,16 +38,29 @@
 
     <div id="top">
     <br>
-    <h1>MINI GAME!</h1> <br>
+    <h1>TEST</h1> <br>
 
         <h3>Username:</h3>
         <input id=name name="name" type="text" size="30"> <br><br>
         <a href="#" onclick="StartGame()"><button id="submit_btn">Gioca </button></a> <br>
-        <button  id="submit_btn" onclick="display()"> Guarda la classifica  </button> <br> <br>
+        
 
         <div id="results">
+            <br>
+            <h2>Top 5</h2> <br>
+            <table style="border-collapse: collapse; margin-left:auto; margin-right:auto;">
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Punteggio</th>
+                </tr>
+                </thead>
+                <tbody id="myTable">
+                </tbody>
+            </table>
+        
             <table id="table">
-                <th>Leader Board!!</th>
+                <th>Classifica</th>
                 <tr>
                     <td id="leaderBoard"></td>
                 </tr>
@@ -54,7 +70,7 @@
 
     </div>
     <div id="bottom" style="display:none;">
-        <p>hey</p>
+        <a href="/"><button id="submit_btn">Home</button></a>
     </div>
     <script src="./test2.js"></script>
     </body>

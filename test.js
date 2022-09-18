@@ -68,6 +68,8 @@ var gameStarted,
     cobraMode = 0,
     gameOvers = 0;
 
+
+
 function create() {
     game.stage.scaleMode = Phaser.StageScaleMode.SHOW_ALL;
     game.stage.scale.setScreenSize(true);
@@ -169,7 +171,7 @@ function reset() {
     gameOver = false;
     score = 0;
     credits.renderable = true;
-    scoreText.setText("VOLA\nCOME\nUN\nGHIRO");
+    scoreText.setText("VOLA");
     instText.setText("TOCCA PER VOLARE\nCON L'UCCELLO");
     gameOverText.renderable = false;
     birdie.body.allowGravity = false;
@@ -287,11 +289,13 @@ function setGameOver() {
     window.localStorage.setItem('hiscore', hiscore);
     gameOverText.setText("GAMEOVER\n\nRECORD\n" + hiscore);
     
+    var x = parseInt(hiscore)
     var text=document.getElementById('name');
+
     if( document.getElementById("name").value != ''){
         db.collection("players").add({
             name: text.value,
-            score: hiscore,
+            score: x,
         })
         .then((docRef) => {
             console.log("Document written with ID: ", docRef.id);
@@ -427,6 +431,39 @@ function onKeyDown(e) {
 
 
 function StartGame(){
+
+    var text=document.getElementById('name');
+    var migliore = "0";
+    var hiscore = "0";
+/*    var docRef = db.collection("players").where("name", "==", text.value);
+
+    docRef.get().then((doc) => {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    }); */
+
+    db.collection("players").where("name", "==", text.value)
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+            migliore = doc.data();
+            console.log(doc.id, " => ", migliore);
+            var hiscore = migliore;
+            window.localStorage.setItem('hiscore', hiscore);
+            console.log(hiscore)
+        });
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
 
             var top = document.getElementById("top");
             var bottom = document.getElementById("bottom");
