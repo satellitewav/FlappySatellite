@@ -448,7 +448,7 @@ async function controlloUtente() {
     } else {
         var hiscore = 0;
         window.localStorage.setItem('hiscore', hiscore);
-        console.log("No such document! Hiscore set to ", hiscore);
+        console.log("Nuovo utente, assegno punteggio ", hiscore);
     }
   
 }
@@ -465,6 +465,17 @@ async function assegnaPunteggio(x, hiscore) {
         let migliore  = `${data.score}`;
         if (hiscore > migliore){
             console.log("Miglior punteggio superato");
+            db.collection("players").where("name", "==", text.value)
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                    db.collection("players").doc(doc.id).update({
+                        score: x,
+                    })
+                    console.log("Dati precedenti aggiornati");
+                });
+            })
         }else{
             console.log("Miglior punteggio non superato");
         }
@@ -481,7 +492,7 @@ async function assegnaPunteggio(x, hiscore) {
             console.error("Error adding document: ", error);
             });
         } 
-        console.log("Nuovo utente, assegno nome", text.value, " e punteggio ", hiscore);
+        console.log("Nuovo utente, assegno nome", text.value, "e punteggio ", hiscore);
     }
 }
 
