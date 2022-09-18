@@ -1,8 +1,9 @@
 # Don't Touch My Birdie
 
-A clone of the widely-popular game [Flappy Bird](http://en.wikipedia.org/wiki/Flappy_Bird) created using the [Phaser framework](http://phaser.io/).
+Un clone del gioco [Flappy Bird](http://en.wikipedia.org/wiki/Flappy_Bird) creato usando il [framework Phaser](http://phaser.io/) e [FireBase]().
+Basato sulle repository [HTML5 and Firebase](https://github.com/The-Assembly/Build-a-simple-web-game-with-HTML5-and-Firebase) e []()
 
-[Open in your mobile browser](https://jackdispade21.github.io/provaflappy)
+[Apri il link dal telefono](https://jackdispade21.github.io/provaflappy)
 
 ![Screenshots](screenshots.png)
 
