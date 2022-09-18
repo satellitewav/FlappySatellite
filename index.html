@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <title>DTMB</title>
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="apple-touch-icon" href="assets/icon.png">
+        <link rel="icon" href="assets/icon.png">
         <link rel="apple-touch-icon" sizes="120x120" href="/assets/icon-120.png">
         <style>
             body {
@@ -17,62 +18,42 @@
             #screen {
                 display: inline-block;
             }
-            </style>
         </style>
-
-    <!-- 7.14.2  -->
-    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-     <!-- <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script> -->  
-     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-        <!-- Add Firebase products that you want to use -->
-        
-        <link rel="stylesheet" href="test.css">
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>    
+        <link rel="stylesheet" href="stile.css">
 
     </head>
 
     <body>
         <script src="phaser.min.js"></script>
-        <script src="test.js"></script>
+        <script src="gioco.js"></script>
 
-    <div id="top">
-    <br>
-    <h1>TEST</h1> <br>
-
-        <h3>Username:</h3>
-        <input id=name name="name" type="text" size="30"> <br><br>
-        <a href="#" onclick="StartGame()"><button id="submit_btn">Gioca </button></a> <br>
-        
-
-        <div id="results">
+        <div id="top">
             <br>
-            <h2>Top 5</h2> <br>
-            <table style="border-collapse: collapse; margin-left:auto; margin-right:auto;">
-                <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Punteggio</th>
-                </tr>
-                </thead>
-                <tbody id="myTable">
-                </tbody>
-            </table>
-        
-            <table id="table">
-                <th>Classifica</th>
-                <tr>
-                    <td id="leaderBoard"></td>
-                </tr>
-            </table>
+            <h1>TEST</h1> <br>
+            <h3>Username:</h3>
+            <input id=name name="name" type="text" size="30"> <br><br>
+            <a href="#" onclick="StartGame()"><button id="submit_btn">Gioca </button></a> <br>
+            <div id="results">
+                <br>
+                <h2>Top 5</h2> <br>
+                <table style="border-collapse: collapse; margin-left:auto; margin-right:auto;">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Punteggio</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myTable">
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-
-    </div>
-    <div id="bottom" style="display:none;">
-        <a href="/provaflappy/index.html"><button id="submit_btn">Home</button></a>
-    </div>
-    <script src="./test2.js"></script>
+        <div id="bottom" style="display:none;">
+            <a href="/provaflappy/index.html"><button id="submit_btn">Home</button></a>
+        </div>
+        <script src="./firebase.js"></script>
     </body>
-
 </html>

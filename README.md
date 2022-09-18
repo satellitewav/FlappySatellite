@@ -1,11 +1,11 @@
-# Vola
+# Don't Touch My Birdie
 
-Un clone del gioco [Flappy Bird](http://en.wikipedia.org/wiki/Flappy_Bird) creato usando il [framework Phaser](http://phaser.io/) e [FireBase](https://firebase.google.com/).
+A clone of the widely-popular game [Flappy Bird](http://en.wikipedia.org/wiki/Flappy_Bird) created using the [Phaser framework](http://phaser.io/).
 
-Basato sulle repository [HTML5 and Firebase](https://github.com/The-Assembly/Build-a-simple-web-game-with-HTML5-and-Firebase) e [Don't Touch My Birdie](https://github.com/marksteve/dtmb).
+[Open in your mobile browser](https://jackdispade21.github.io/provaflappy)
 
-[Apri il link dal telefono](https://satellitewav.github.io/provaflappy/)
+![Screenshots](screenshots.png)
 
-## Licenza
+## License
 
-Progetto concesso in licenza d'uso da [Attribuzione - Non commerciale 4.0 Internazionale (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/deed.it).
+This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](http://creativecommons.org/licenses/by-nc/4.0/).
