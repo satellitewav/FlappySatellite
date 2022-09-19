@@ -33,7 +33,7 @@ function preload() {
         },
         image: {
             finger: ['assets/finger.png'],
-            fence: ['assets/fence.png']
+            fence: ['assets/catene.png']
         },
         audio: {
             flap: ['assets/flap.wav'],
