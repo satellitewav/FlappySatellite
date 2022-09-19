@@ -25,7 +25,7 @@ var game = new Phaser.Game(
 );
 
 function preload() {
-    game.load.image('sky', 'assets/sky.png');
+    game.load.image('sky', 'assets/sky3.png');
     var assets = {
         spritesheet: {
             birdie: ['assets/testsate.png', 48, 24],
