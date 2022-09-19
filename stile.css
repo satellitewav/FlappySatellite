@@ -85,9 +85,32 @@ th , tr {
     border: 0px solid black;
  }
 
- 
+ /* Style all font awesome icons */
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+  
+  /* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
 
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
 
-
+#header-content {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+}
 
 

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-
-        <title>DTMB</title>
+        <title>Satellite Games</title>
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="icon" href="assets/icon.png">
@@ -21,15 +20,16 @@
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>    
         <link rel="stylesheet" href="stile.css">
-
+        <!-- Add icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Add font awesome icons -->
     </head>
 
     <body>
         <script src="phaser.min.js"></script>
         <script src="gioco.js"></script>
         <div id="top">
-            <br>
-            <h1>Satellite</h1> <br>
+            <img src="/assets/logo.png" style="width:20%; height:20%;" alt="FLAPPY SATELLITE">
             <h3>Username Instagram:</h3>
             <p>Il tuo record viene sincronizzato in automatico</p>
             <input id=name name="name" type="text" size="30"> <br><br>
@@ -52,8 +52,8 @@
                     </div>
                 </div>
             </div>
+            <div id="header-content"><a href="#" class="fa fa-instagram"></a></div>
         </div>
-
         <div id="bottom" style="display:none;">
             <a href="/provaflappy/index.html"><button id="submit_btn">Home</button></a>
         </div>
