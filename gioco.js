@@ -25,6 +25,7 @@ var game = new Phaser.Game(
 );
 
 function preload() {
+    game.load.image('sky', 'assets/sky2.png');
     var assets = {
         spritesheet: {
             birdie: ['assets/birdie.png', 48, 24],
@@ -77,7 +78,9 @@ function create() {
     bg = game.add.graphics(0, 0);
     bg.beginFill(0xDDEEFF, 1);
     bg.drawRect(0, 0, game.world.width, game.world.height);
+    game.add.sprite(0, 0, 'sky', game.world.width, game.world.height);
     bg.endFill();
+
     // Credits 'yo
     credits = game.add.text(
         game.world.width / 2,
@@ -172,7 +175,7 @@ function reset() {
     score = 0;
     credits.renderable = true;
     scoreText.setText("VOLA");
-    instText.setText("TOCCA PER VOLARE\nCON L'UCCELLO");
+    instText.setText("TOCCA PER GIOCARE");
     gameOverText.renderable = false;
     birdie.body.allowGravity = false;
     birdie.angle = 0;
@@ -210,7 +213,6 @@ function flap() {
 
 function spawnCloud() {
     cloudsTimer.stop();
-
     var cloudY = Math.random() * game.height / 2;
     var cloud = clouds.create(
         game.width,
@@ -280,17 +282,18 @@ function addScore(_, inv) {
 
 function setGameOver() {
     gameOver = true;
+    var text=document.getElementById('name');
 
-    instText.setText("TOCCA L'UCCELLO\nPER RIPROVARE");
+    instText.setText("TOCCA IL SATELLITE\nPER RIPROVARE");
     instText.renderable = true;
     var hiscore = window.localStorage.getItem('hiscore');
     hiscore = hiscore ? hiscore : score;
     hiscore = score > parseInt(hiscore, 10) ? score : hiscore;
     window.localStorage.setItem('hiscore', hiscore);
-    gameOverText.setText("GAMEOVER\n\nRECORD\n" + hiscore);
+    gameOverText.setText("GAME OVER\n\nRECORD\n" + text.value + ":" + hiscore);
     
     var x = parseInt(hiscore)
-    var text=document.getElementById('name');
+    
     
     assegnaPunteggio(x, hiscore);
   
