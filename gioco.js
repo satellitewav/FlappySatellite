@@ -1,9 +1,9 @@
 var DEBUG = false;
 var SPEED = 180;
-var GRAVITY = 20;
+var GRAVITY = 23;
 var FLAP = 420;
 var SPAWN_RATE = 1 / 1.3;
-var OPENING = 160;
+var OPENING = 165;
 
 function init(parent) {
 
@@ -25,14 +25,14 @@ var game = new Phaser.Game(
 );
 
 function preload() {
-    game.load.image('sky', 'assets/sky3.png');
+    game.load.image('sky', 'assets/cielo.png');
     var assets = {
         spritesheet: {
-            birdie: ['assets/testsate.png', 48, 24],
-            clouds: ['assets/clouds.png', 128, 64]
+            birdie: ['assets/satellite.png', 48, 24],
+            clouds: ['assets/razzi.png', 128, 64]
         },
         image: {
-            finger: ['assets/finger.png'],
+            finger: ['assets/megalaser.png'],
             fence: ['assets/catene.png']
         },
         audio: {
@@ -85,7 +85,7 @@ function create() {
     credits = game.add.text(
         game.world.width / 2,
         10,
-        'marksteve.com/dtmb\n@themarksteve',
+        'Satellite Games\n@satellite.wav',
         {
             font: '8px "Press Start 2P"',
             fill: '#fff',
@@ -174,7 +174,7 @@ function reset() {
     gameOver = false;
     score = 0;
     credits.renderable = true;
-    scoreText.setText("VOLA");
+    scoreText.setText("FLAPPY\nSATELLITE");
     instText.setText("TOCCA PER GIOCARE");
     gameOverText.renderable = false;
     birdie.body.allowGravity = false;
