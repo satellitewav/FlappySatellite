@@ -4,7 +4,7 @@ Un clone del gioco [Flappy Bird](http://en.wikipedia.org/wiki/Flappy_Bird) creat
 
 Basato sulle repository [HTML5 and Firebase](https://github.com/The-Assembly/Build-a-simple-web-game-with-HTML5-and-Firebase) e [Don't Touch My Birdie](https://github.com/marksteve/dtmb).
 
-[Apri il link dal telefono](https://satellitewav.github.io/provaflappy/index.html)
+[Apri il link dal telefono](https://satellitewav.github.io/FlappySatellite/index.html)
 
 ## Licenza
 
