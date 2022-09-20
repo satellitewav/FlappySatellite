@@ -155,8 +155,11 @@ function create() {
     gameOverText.scale.setTo(2, 2);
     // Add sounds
     flapSnd = new Audio('/FlappySatellite/assets/flap.wav');
+    flapSnd.volume = 0.25;
     scoreSnd = new Audio('/FlappySatellite/assets/score.wav');
+    scoreSnd.volume = 0.25;
     hurtSnd = new Audio('/FlappySatellite/assets/hurt.wav');
+    hurtSnd.volume = 0.25;
     // Add controls
     game.input.onDown.add(flap);
     game.input.keyboard.addCallbacks(game, onKeyDown, onKeyUp);
@@ -207,6 +210,7 @@ function flap() {
     }
     if (!gameOver) {
         birdie.body.velocity.y = -FLAP;
+        flapSnd.currentTime = 0;
         flapSnd.play();
     }
 }
@@ -499,6 +503,11 @@ async function assegnaPunteggio(x, hiscore) {
 
 function StartGame(){
 
+    ost = new Audio('yakuza.mp3');
+    ost.loop = true;
+    ost.volume = 0.3;
+    ost.play();  
+    
     var text=document.getElementById('name');
     var migliore = "0";
     var hiscore = "0";
