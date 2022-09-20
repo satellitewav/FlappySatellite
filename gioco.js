@@ -154,9 +154,9 @@ function create() {
     gameOverText.anchor.setTo(0.5, 0.5);
     gameOverText.scale.setTo(2, 2);
     // Add sounds
-    flapSnd = game.add.audio('flap');
-    scoreSnd = game.add.audio('score');
-    hurtSnd = game.add.audio('hurt');
+    flapSnd = new Audio('/FlappySatellite/assets/flap.wav');
+    scoreSnd = new Audio('/FlappySatellite/assets/score.wav');
+    hurtSnd = new Audio('/FlappySatellite/assets/hurt.wav');
     // Add controls
     game.input.onDown.add(flap);
     game.input.keyboard.addCallbacks(game, onKeyDown, onKeyUp);
