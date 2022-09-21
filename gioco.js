@@ -36,7 +36,6 @@ function preload() {
             fence: ['assets/catene.png']
         },
         audio: {
-            flap: ['assets/flap.wav'],
             score: ['assets/score.wav'],
             hurt: ['assets/hurt.wav']
         }
@@ -61,7 +60,6 @@ var gameStarted,
     scoreText,
     instText,
     gameOverText,
-    flapSnd,
     scoreSnd,
     hurtSnd,
     fingersTimer,
@@ -109,6 +107,7 @@ function create() {
     birdie.body.gravity.y = GRAVITY;
     // Add fence
     fence = game.add.tileSprite(0, game.world.height - 32, game.world.width, 32, 'fence');
+//    fence2 = game.add.tileSprite(100, game.world.height - 32, game.world.width, 32, 'fence');
     fence.tileScale.setTo(2, 2);
     // Add score text
     scoreText = game.add.text(
@@ -154,8 +153,6 @@ function create() {
     gameOverText.anchor.setTo(0.5, 0.5);
     gameOverText.scale.setTo(2, 2);
     // Add sounds
-    flapSnd = new Audio('/FlappySatellite/assets/flap.wav');
-    flapSnd.volume = 0.25;
     scoreSnd = new Audio('/FlappySatellite/assets/score.wav');
     scoreSnd.volume = 0.25;
     hurtSnd = new Audio('/FlappySatellite/assets/hurt.wav');
@@ -190,6 +187,9 @@ function reset() {
 }
 
 function start() {
+    ost.currentTime = 0;
+    ost.play();
+    ost.volume = 0.3;
     credits.renderable = false;
     birdie.body.allowGravity = true;
     // SPAWN FINGERS!
@@ -210,8 +210,6 @@ function flap() {
     }
     if (!gameOver) {
         birdie.body.velocity.y = -FLAP;
-        flapSnd.currentTime = 0;
-        flapSnd.play();
     }
 }
 
@@ -285,6 +283,7 @@ function addScore(_, inv) {
 }
 
 function setGameOver() {
+    ost.volume = 0;
     gameOver = true;
     var text=document.getElementById('name');
 
@@ -503,10 +502,9 @@ async function assegnaPunteggio(x, hiscore) {
 
 function StartGame(){
 
-    ost = new Audio('yakuza.mp3');
+    ost = new Audio('soundtrack.mp3');
     ost.loop = true;
     ost.volume = 0.3;
-    ost.play();  
     
     var text=document.getElementById('name');
     var migliore = "0";
