@@ -189,7 +189,7 @@ function reset() {
 function start() {
     ost.currentTime = 0;
     ost.play();
-    ost.volume = 0.3;
+    ost.volume = 0.6;
     credits.renderable = false;
     birdie.body.allowGravity = true;
     // SPAWN FINGERS!
@@ -283,7 +283,7 @@ function addScore(_, inv) {
 }
 
 function setGameOver() {
-    ost.volume = 0;
+    ost.pause();
     gameOver = true;
     var text=document.getElementById('name');
 
@@ -504,7 +504,7 @@ function StartGame(){
 
     ost = new Audio('soundtrack.mp3');
     ost.loop = true;
-    ost.volume = 0.3;
+    ost.volume = 0.6;
     
     var text=document.getElementById('name');
     var migliore = "0";
