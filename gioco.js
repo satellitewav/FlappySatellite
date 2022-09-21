@@ -284,6 +284,7 @@ function addScore(_, inv) {
 
 function setGameOver() {
     ost.pause();
+    sil.play();
     gameOver = true;
     var text=document.getElementById('name');
 
@@ -503,6 +504,7 @@ async function assegnaPunteggio(x, hiscore) {
 function StartGame(){
 
     ost = new Audio('soundtrack.mp3');
+    sil = new Audio('silenzio.mp3');
     ost.loop = true;
     ost.volume = 0.6;
     
