@@ -7,15 +7,19 @@ var firebaseConfig = {
   projectId: "flappybird-1efe3",
   storageBucket: "flappybird-1efe3.appspot.com",
   messagingSenderId: "993302118393",
-  appId: "1:993302118393:web:f1de0e43d0ecd4d2f14728"
+  appId: "1:993302118393:web:f1de0e43d0ecd4d2f14728",
+  measurementId: "G-PY08LWYRR2"
 };
 
 // Initialize Firebase
+
 var app = firebase.initializeApp(firebaseConfig);
         db = firebase.firestore(app);
         firebase.firestore().settings({
             cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED
         });
+
+const analytics = firebase.analytics();        
 
 db.collection("players").orderBy("score", "desc").limit(5)
 .get()
